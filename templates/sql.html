@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Practice - PrepFlow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="dashboard-body">
+
+<div class="dashboard-layout">
+    <aside class="sidebar">
+        <div class="sidebar-logo" style="display: flex; align-items: center; gap: 12px;">
+            <a href="/profile" style="text-decoration: none;" title="Profile">
+                <div class="avatar-mini" style="margin: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;">{{ user[0]|upper }}</div>
+            </a>
+            <a href="/dashboard" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 4px;">PrepFlow<span class="logo-icon">↗</span></a>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-section-title">PREPARATION</div>
+            <a href="/dsa" class="nav-item"><span class="icon">💻</span> DSA / Problem Solving</a>
+            <a href="/aptitude" class="nav-item"><span class="icon">🧠</span> Aptitude</a>
+            <a href="/mock-interviews" class="nav-item"><span class="icon">🎤</span> Mock Interviews</a>
+            
+            <div class="nav-section-title">TECHNOLOGIES</div>
+            <a href="/sql" class="nav-item active"><span class="icon">🛢️</span> SQL</a>
+            <a href="/html" class="nav-item"><span class="icon">🌐</span> HTML</a>
+            <a href="/css" class="nav-item"><span class="icon">🎨</span> CSS</a>
+            <a href="/javascript" class="nav-item"><span class="icon">⚡</span> JavaScript</a>
+            <a href="/react" class="nav-item"><span class="icon">⚛️</span> React</a>
+            <a href="/nodejs" class="nav-item"><span class="icon">🟢</span> Node.js</a>
+            <a href="/express" class="nav-item"><span class="icon">🚂</span> Express</a>
+            <a href="/flask" class="nav-item"><span class="icon">🌶️</span> Flask</a>
+            <a href="/rest-api" class="nav-item"><span class="icon">🔌</span> REST API</a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="user-info-mini">
+                <div class="avatar-mini">{{ user[0]|upper }}</div>
+                <div class="user-details-mini"><span class="user-name-mini">{{ user }}</span><span class="user-role-mini">student account</span></div>
+            </div>
+            <a href="/logout" class="logout-mini">Logout</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <h2>SQL (Structured Query Language)</h2>
+                <p class="subtitle">Master Database schemas, queries, normalization, and advanced functions.</p>
+            </div>
+            <div class="topbar-actions"><button class="btn-icon">🔔</button></div>
+        </header>
+
+        <div style="padding: 32px 40px; display: grid; gap: 24px; grid-template-columns: 1fr 1fr;">
+
+            <div class="dash-card">
+                <h3 style="margin-bottom: 16px; font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 8px;">Basic Queries Foundation</h3>
+                <div class="task-list">
+                    <div class="task-item"><div class="task-info"><span class="task-topic">SELECT & WHERE clauses</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://www.w3schools.com/sql/sql_where.asp', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">UPDATE & DELETE operations</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://www.w3schools.com/sql/sql_update.asp', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">ORDER BY & Data Sorting</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://www.w3schools.com/sql/sql_orderby.asp', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Logical Operators (AND/OR/IN)</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://www.w3schools.com/sql/sql_and_or.asp', '_blank');">Start</button></div>
+                </div>
+            </div>
+
+            <div class="dash-card">
+                <h3 style="margin-bottom: 16px; font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 8px;">Joins & Relationships</h3>
+                <div class="task-list">
+                    <div class="task-item"><div class="task-info"><span class="task-topic">INNER JOIN</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://www.w3schools.com/sql/sql_join_inner.asp', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">LEFT, RIGHT & FULL OUTER JOINS</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://www.w3schools.com/sql/sql_join_left.asp', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Self Joins & Cross Joins</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://www.w3schools.com/sql/sql_join_self.asp', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">UNION vs UNION ALL</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://www.w3schools.com/sql/sql_union.asp', '_blank');">Start</button></div>
+                </div>
+            </div>
+
+            <div class="dash-card">
+                <h3 style="margin-bottom: 16px; font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 8px;">Advanced Queries & Functions</h3>
+                <div class="task-list">
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Aggregate Functions (COUNT, SUM)</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://www.w3schools.com/sql/sql_count_avg_sum.asp', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">GROUP BY & HAVING</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://www.w3schools.com/sql/sql_groupby.asp', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Subqueries (Correlated/Uncorrelated)</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://www.indiabix.com/database/sql-queries/', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Window Functions (RANK, ROW_NUMBER)</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://mode.com/sql-tutorial/sql-window-functions', '_blank');">Start</button></div>
+                </div>
+            </div>
+
+            <div class="dash-card">
+                <h3 style="margin-bottom: 16px; font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 8px;">Architecture & Design</h3>
+                <div class="task-list">
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Database Normalization (1NF to BCNF)</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://www.studytonight.com/dbms/database-normalization.php', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Keys (Primary, Foreign, Candidate)</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://www.geeksforgeeks.org/types-of-keys-in-relational-model-candidate-super-primary-alternate-and-foreign/', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Indexing & Performance Optimization</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://use-the-index-luke.com/', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Views & Stored Procedures</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://www.w3schools.com/sql/sql_view.asp', '_blank');">Start</button></div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</div>
+</body>
+</html>

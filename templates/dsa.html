@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA Practice - PrepFlow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="dashboard-body">
+
+<div class="dashboard-layout">
+    <aside class="sidebar">
+        <div class="sidebar-logo" style="display: flex; align-items: center; gap: 12px;">
+            <a href="/profile" style="text-decoration: none;" title="Profile">
+                <div class="avatar-mini" style="margin: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;">{{ user[0]|upper }}</div>
+            </a>
+            <a href="/dashboard" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 4px;">PrepFlow<span class="logo-icon">↗</span></a>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-section-title">PREPARATION</div>
+            <a href="/dsa" class="nav-item active"><span class="icon">💻</span> DSA / Problem Solving</a>
+            <a href="/aptitude" class="nav-item"><span class="icon">🧠</span> Aptitude</a>
+            <a href="/mock-interviews" class="nav-item"><span class="icon">🎤</span> Mock Interviews</a>
+            <div class="nav-section-title">TECHNOLOGIES</div>
+            <a href="/sql" class="nav-item"><span class="icon">🛢️</span> SQL</a>
+            <a href="/html" class="nav-item"><span class="icon">🌐</span> HTML</a>
+            <a href="/css" class="nav-item"><span class="icon">🎨</span> CSS</a>
+            <a href="/javascript" class="nav-item"><span class="icon">⚡</span> JavaScript</a>
+            <a href="/react" class="nav-item"><span class="icon">⚛️</span> React</a>
+            <a href="/nodejs" class="nav-item"><span class="icon">🟢</span> Node.js</a>
+            <a href="/express" class="nav-item"><span class="icon">🚂</span> Express</a>
+            <a href="/flask" class="nav-item"><span class="icon">🌶️</span> Flask</a>
+            <a href="/rest-api" class="nav-item"><span class="icon">🔌</span> REST API</a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="user-info-mini">
+                <div class="avatar-mini">{{ user[0]|upper }}</div>
+                <div class="user-details-mini"><span class="user-name-mini">{{ user }}</span><span class="user-role-mini">student account</span></div>
+            </div>
+            <a href="/logout" class="logout-mini">Logout</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <h2>Data Structures & Algorithms</h2>
+                <p class="subtitle">Comprehensive problem list covering all major algorithmic patterns.</p>
+            </div>
+            <div class="topbar-actions"><button class="btn-icon">🔔</button></div>
+        </header>
+
+        <div style="padding: 32px 40px; display: grid; gap: 24px; grid-template-columns: 1fr 1fr;">
+
+            <!-- Arrays & Strings -->
+            <div class="dash-card">
+                <h3 style="margin-bottom: 16px; font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 8px;">Arrays & Strings</h3>
+                <div class="task-list">
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Two Sum</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://leetcode.com/problems/two-sum/', '_blank');">Solve</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Best Time to Buy and Sell Stock</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://leetcode.com/problems/best-time-to-buy-and-sell-stock/', '_blank');">Solve</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Longest Substring Without Repeating</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://leetcode.com/problems/longest-substring-without-repeating-characters/', '_blank');">Solve</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Valid Anagram</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://leetcode.com/problems/valid-anagram/', '_blank');">Solve</button></div>
+                </div>
+            </div>
+
+            <!-- Linked Lists -->
+            <div class="dash-card">
+                <h3 style="margin-bottom: 16px; font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 8px;">Linked Lists</h3>
+                <div class="task-list">
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Reverse Linked List</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://leetcode.com/problems/reverse-linked-list/', '_blank');">Solve</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Merge Two Sorted Lists</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://leetcode.com/problems/merge-two-sorted-lists/', '_blank');">Solve</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Linked List Cycle</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://leetcode.com/problems/linked-list-cycle/', '_blank');">Solve</button></div>
+                </div>
+            </div>
+
+            <!-- Stacks & Queues -->
+            <div class="dash-card">
+                <h3 style="margin-bottom: 16px; font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 8px;">Stacks & Queues</h3>
+                <div class="task-list">
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Valid Parentheses</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://leetcode.com/problems/valid-parentheses/', '_blank');">Solve</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Implement Queue using Stacks</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://leetcode.com/problems/implement-queue-using-stacks/', '_blank');">Solve</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Daily Temperatures</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://leetcode.com/problems/daily-temperatures/', '_blank');">Solve</button></div>
+                </div>
+            </div>
+
+            <!-- Hashmaps -->
+            <div class="dash-card">
+                <h3 style="margin-bottom: 16px; font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 8px;">Hashmaps & Sets</h3>
+                <div class="task-list">
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Contains Duplicate</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://leetcode.com/problems/contains-duplicate/', '_blank');">Solve</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Group Anagrams</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://leetcode.com/problems/group-anagrams/', '_blank');">Solve</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Top K Frequent Elements</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://leetcode.com/problems/top-k-frequent-elements/', '_blank');">Solve</button></div>
+                </div>
+            </div>
+
+            <!-- Trees -->
+            <div class="dash-card">
+                <h3 style="margin-bottom: 16px; font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 8px;">Trees</h3>
+                <div class="task-list">
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Maximum Depth of Binary Tree</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://leetcode.com/problems/maximum-depth-of-binary-tree/', '_blank');">Solve</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Invert Binary Tree</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://leetcode.com/problems/invert-binary-tree/', '_blank');">Solve</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Lowest Common Ancestor of a BST</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/', '_blank');">Solve</button></div>
+                </div>
+            </div>
+
+            <!-- Graphs & Recursion -->
+            <div class="dash-card">
+                <h3 style="margin-bottom: 16px; font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 8px;">Graphs & Recursion</h3>
+                <div class="task-list">
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Number of Islands</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://leetcode.com/problems/number-of-islands/', '_blank');">Solve</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Clone Graph</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://leetcode.com/problems/clone-graph/', '_blank');">Solve</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Subsets</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://leetcode.com/problems/subsets/', '_blank');">Solve</button></div>
+                </div>
+            </div>
+
+            <!-- Dynamic Programming -->
+            <div class="dash-card" style="grid-column: 1 / -1;">
+                <h3 style="margin-bottom: 16px; font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 8px;">Dynamic Programming</h3>
+                <div class="task-list" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Climbing Stairs</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://leetcode.com/problems/climbing-stairs/', '_blank');">Solve</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Coin Change</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://leetcode.com/problems/coin-change/', '_blank');">Solve</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Longest Increasing Subsequence</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://leetcode.com/problems/longest-increasing-subsequence/', '_blank');">Solve</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Fibonacci Number</span></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://leetcode.com/problems/fibonacci-number/', '_blank');">Solve</button></div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</div>
+</body>
+</html>

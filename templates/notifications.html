@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notifications</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+<div class="notification-container">
+
+    <div class="notification-card">
+        <div class="icon">🔔</div>
+        <h2>Hey {{ user }}! </h2><br>
+        <h2>No Notifications</h2>
+
+        <p>You’re all caught up! No new alerts right now.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

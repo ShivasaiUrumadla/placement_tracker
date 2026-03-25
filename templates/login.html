@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Placement Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="landing-body">
+    <!-- Navbar -->
+    <nav class="navbar-landing">
+        <div class="logo">PrepFlow</div>
+        <div class="nav-links">
+            <a href="/features">Features </a>
+            <a href="/contact">Contact</a>
+            <!-- <a href="#">Blogs</a> -->
+        </div>
+        <a href="/register" class="btn-primary">Register </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="hero-container" style="align-items: center; justify-content: center;">
+        <!-- Login Form on the Left -->
+        <div class="hero-content" style="max-width: 100%;" >
+            <div class="badge">✨ Welcome Back!</div>
+            <!-- <h1 class="hero-title" style="font-size: 48px;">Continue <span class="text-gradient">Learning</span><br>with AI.</h1> -->
+            <p style="margin-bottom: 24px; font-size: 20px;">Login to access your Dashboard.</p>
+            
+            <form class="auth-form" action="/login" method="POST" style="background: white; padding: 24px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); ">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="Enter your password" required>
+                </div>
+                
+                <button type="submit" class="btn-primary-large" style="width: 100%; margin-top: 8px;">Login</button>
+                <div style="text-align: center; margin-top: 16px; font-size: 13px;">
+                    Don't have an account? <a href="/register" style=" font-weight: 600;">Sign up</a>
+                </div>
+            </form>
+        </div>
+
+        <!-- Visual Avatars on the Right -->
+        <!-- <div class="hero-visuals">
+            <div class="floating-avatars">
+                <div class="avatar-bubble pos-1"><img src="https://ui-avatars.com/api/?name=St&background=random&rounded=true" alt="Student"></div>
+                <div class="avatar-bubble pos-2"><img src="https://ui-avatars.com/api/?name=Jo&background=random&rounded=true" alt="Student"></div>
+                <div class="avatar-bubble pos-3"><img src="https://ui-avatars.com/api/?name=Ma&background=random&rounded=true" alt="Student"></div>
+                <div class="avatar-bubble pos-4"><img src="https://ui-avatars.com/api/?name=Al&background=random&rounded=true" alt="Student"></div>
+                <div class="avatar-bubble pos-5"><img src="https://ui-avatars.com/api/?name=Sa&background=random&rounded=true" alt="Student"></div>
+                <div class="avatar-bubble pos-6"><img src="https://ui-avatars.com/api/?name=Pr&background=random&rounded=true" alt="Student"></div>
+            </div>
+        </div> -->
+    </main>
+</body>
+</html>

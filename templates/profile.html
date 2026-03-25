@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+</head>
+<body>
+    <div class="profile-card">
+    <div class="profile-header">
+        <div class="avatar">{{ user[0]|upper }}</div>
+        <h2>{{ user }}</h2>
+        <p class="role">Python Batch</p>
+    </div>
+
+    <div class="profile-body">
+        <p>🏫 Training Institution - Nevcoder</p>
+        <p>✉️ {{ user|lower }}@gmail.com</p>
+        <p>📞 9876543210</p>
+        <p class="batch">✅ ONLINEBATCH02</p>
+    </div>
+
+    <div class="profile-stats">
+        <div>
+            <h3>0</h3>
+            <span>Points</span>
+        </div>
+        <div>
+            <h3>2</h3>
+            <span>Streak</span>
+        </div>
+        <div>
+            <h3>0</h3>
+            <span>Best</span>
+        </div>
+    </div>
+</div>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Profile Sidebar -->
+            <!-- <div class="profile-column">
+                <div class="dash-card profile-card">
+                    <div class="profile-header-bg"></div>
+                    <div class="profile-avatar-large">{{ user[0]|upper }}</div>
+                    
+                    < <h3 class="profile-name">{{ user }}</h3> -->
+                    <!-- <p class="profile-name-inst">{{ user }}</p>
+                    <span class="badge-purple">Python Batch</span>
+                    <p class="profile-inst">Training Institution - Nevcoder</p>
+
+                    <div class="profile-details">
+                        <div class="detail-item"><span>✉️</span> {{ user|lower }}@gmail.com</div>
+                        <div class="detail-item"><span>📞</span> 9876543210</div>
+                        <div class="detail-item badge-outline">✅ ONLINEBATCH02</div>
+                    </div>
+
+                    <div class="profile-stats">
+                        <div class="stat-box yellow">
+                            <strong>{{ total * 10 }}</strong> -->
+                            <!-- <strong>105</strong>
+                            <span>Points</span>
+                        </div>
+                        <div class="stat-box orange">
+                             <strong>{{ done }}</strong>
+                             <strong>5</strong>
+                            <span>Streak</span>
+                        </div>
+                        <div class="stat-box green">
+                            <strong>1</strong>
+                            <span>Best</span>
+                        </div>
+                    </div> 
+
+                    <button class="btn-outline-full">View my full profile</button>
+                    <button class="btn-text lock-btn">🔒 Change Password</button>
+                </div>
+            </div> -->

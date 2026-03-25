@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js Practice - PrepFlow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="dashboard-body">
+
+<div class="dashboard-layout">
+    <aside class="sidebar">
+        <div class="sidebar-logo" style="display: flex; align-items: center; gap: 12px;">
+            <a href="/profile" style="text-decoration: none;" title="Profile">
+                <div class="avatar-mini" style="margin: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;">{{ user[0]|upper }}</div>
+            </a>
+            <a href="/dashboard" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 4px;">PrepFlow<span class="logo-icon">↗</span></a>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-section-title">PREPARATION</div>
+            <a href="/dsa" class="nav-item"><span class="icon">💻</span> DSA / Problem Solving</a>
+            <a href="/aptitude" class="nav-item"><span class="icon">🧠</span> Aptitude</a>
+            <a href="/mock-interviews" class="nav-item"><span class="icon">🎤</span> Mock Interviews</a>
+            
+            <div class="nav-section-title">TECHNOLOGIES</div>
+            <a href="/sql" class="nav-item"><span class="icon">🛢️</span> SQL</a>
+            <a href="/html" class="nav-item"><span class="icon">🌐</span> HTML</a>
+            <a href="/css" class="nav-item"><span class="icon">🎨</span> CSS</a>
+            <a href="/javascript" class="nav-item"><span class="icon">⚡</span> JavaScript</a>
+            <a href="/react" class="nav-item"><span class="icon">⚛️</span> React</a>
+            <a href="/nodejs" class="nav-item active"><span class="icon">🟢</span> Node.js</a>
+            <a href="/express" class="nav-item"><span class="icon">🚂</span> Express</a>
+            <a href="/flask" class="nav-item"><span class="icon">🌶️</span> Flask</a>
+            <a href="/rest-api" class="nav-item"><span class="icon">🔌</span> REST API</a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="user-info-mini">
+                <div class="avatar-mini">{{ user[0]|upper }}</div>
+                <div class="user-details-mini"><span class="user-name-mini">{{ user }}</span><span class="user-role-mini">student account</span></div>
+            </div>
+            <a href="/logout" class="logout-mini">Logout</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <h2>Node.js Environment</h2>
+                <p class="subtitle">Master asynchronous I/O, core modules, event loop, and package dependencies.</p>
+            </div>
+            <div class="topbar-actions"><button class="btn-icon">🔔</button></div>
+        </header>
+
+        <div style="padding: 32px 40px; display: grid; gap: 24px; grid-template-columns: 1fr 1fr;">
+
+            <div class="dash-card">
+                <h3 style="margin-bottom: 16px; font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 8px;">Node.js Fundamentals</h3>
+                <div class="task-list">
+                    <div class="task-item"><div class="task-info"><span class="task-topic">V8 Engine & Execution</span><p style="font-size: 12px; color: #64748b;">How Node is built on Chrome's V8</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://nodejs.dev/en/learn/the-v8-javascript-engine/', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Event Loop Architecture</span><p style="font-size: 12px; color: #64748b;">Phases, libuv, non-blocking I/O</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Global Objects</span><p style="font-size: 12px; color: #64748b;">process, __dirname, setTimeout</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://nodejs.org/api/globals.html', '_blank');">Start</button></div>
+                </div>
+            </div>
+
+            <div class="dash-card">
+                <h3 style="margin-bottom: 16px; font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 8px;">Core Modules</h3>
+                <div class="task-list">
+                    <div class="task-item"><div class="task-info"><span class="task-topic">File System (FS)</span><p style="font-size: 12px; color: #64748b;">Reading & Writing files (Sync & Async)</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://nodejs.org/api/fs.html', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Path Module</span><p style="font-size: 12px; color: #64748b;">Handling file/directory paths safely</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://nodejs.org/api/path.html', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">HTTP / Native server</span><p style="font-size: 12px; color: #64748b;">Creating a basic web server without Express</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://nodejs.org/api/http.html', '_blank');">Start</button></div>
+                </div>
+            </div>
+
+            <div class="dash-card">
+                <h3 style="margin-bottom: 16px; font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 8px;">Streams, Events & Buffers</h3>
+                <div class="task-list">
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Event Emitters</span><p style="font-size: 12px; color: #64748b;">Creating custom events and handlers</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://nodejs.org/api/events.html', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Streams (Read/Write)</span><p style="font-size: 12px; color: #64748b;">Piping data, handling massive files</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://nodejs.org/api/stream.html', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Buffers</span><p style="font-size: 12px; color: #64748b;">Handling binary data</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://nodejs.org/api/buffer.html', '_blank');">Start</button></div>
+                </div>
+            </div>
+
+            <div class="dash-card">
+                <h3 style="margin-bottom: 16px; font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 8px;">Ecosystem & Package Management</h3>
+                <div class="task-list">
+                    <div class="task-item"><div class="task-info"><span class="task-topic">NPM / Yarn / PNPM</span><p style="font-size: 12px; color: #64748b;">Dependencies vs DevDependencies</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://docs.npmjs.com/', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Package.json configuration</span><p style="font-size: 12px; color: #64748b;">Scripts, versioning semantics</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://docs.npmjs.com/cli/v10/configuring-npm/package-json', '_blank');">Start</button></div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</div>
+</body>
+</html>

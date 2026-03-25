@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Tracker - Empower Learning</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="landing-body">
+    <!-- Navbar -->
+    <nav class="navbar-landing">
+        <div class="logo">PrepFlow<span class="logo-icon">↗</span></div>
+        <div class="nav-links">
+            <a href="#">Features <span>⌄</span></a>
+            <a href="#">Contact</a>
+            <a href="#">Blogs</a>
+        </div>
+        <a href="/login" class="btn-primary">Dashboard &rarr;</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="hero-container">
+        <div class="hero-content">
+            <div class="badge">✨ AI-Powered Learning & Assessment Platform</div>
+            <h1 class="hero-title">Empower <span class="text-gradient">Learning</span><br>with AI.</h1>
+            <p class="hero-subtitle">An Al-driven platform serving over <span class="text-purple">1.5 million</span> business and educational users globally.</p>
+            
+            <div class="hero-buttons">
+                <a href="/register" class="btn-primary-large">Explore Features &rarr;</a>
+                <a href="#" class="btn-secondary-large">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 5V19L19 12L8 5Z" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Watch Demo
+                </a>
+            </div>
+        </div>
+        <div class="hero-visuals">
+            <!-- Simulated floating avatar bubbles like the reference image -->
+            <div class="floating-avatars">
+                <div class="avatar-bubble pos-1"><img src="https://ui-avatars.com/api/?name=St&background=random&rounded=true" alt="Student"></div>
+                <div class="avatar-bubble pos-2"><img src="https://ui-avatars.com/api/?name=Jo&background=random&rounded=true" alt="Student"></div>
+                <div class="avatar-bubble pos-3"><img src="https://ui-avatars.com/api/?name=Ma&background=random&rounded=true" alt="Student"></div>
+                <div class="avatar-bubble pos-4"><img src="https://ui-avatars.com/api/?name=Al&background=random&rounded=true" alt="Student"></div>
+                <div class="avatar-bubble pos-5"><img src="https://ui-avatars.com/api/?name=Sa&background=random&rounded=true" alt="Student"></div>
+                <div class="avatar-bubble pos-6"><img src="https://ui-avatars.com/api/?name=Pr&background=random&rounded=true" alt="Student"></div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

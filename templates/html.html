@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Practice - PrepFlow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="dashboard-body">
+
+<div class="dashboard-layout">
+    <aside class="sidebar">
+        <div class="sidebar-logo" style="display: flex; align-items: center; gap: 12px;">
+            <a href="/profile" style="text-decoration: none;" title="Profile">
+                <div class="avatar-mini" style="margin: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;">{{ user[0]|upper }}</div>
+            </a>
+            <a href="/dashboard" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 4px;">PrepFlow<span class="logo-icon">↗</span></a>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-section-title">PREPARATION</div>
+            <a href="/dsa" class="nav-item"><span class="icon">💻</span> DSA / Problem Solving</a>
+            <a href="/aptitude" class="nav-item"><span class="icon">🧠</span> Aptitude</a>
+            <a href="/mock-interviews" class="nav-item"><span class="icon">🎤</span> Mock Interviews</a>
+            
+            <div class="nav-section-title">TECHNOLOGIES</div>
+            <a href="/sql" class="nav-item"><span class="icon">🛢️</span> SQL</a>
+            <a href="/html" class="nav-item active"><span class="icon">🌐</span> HTML</a>
+            <a href="/css" class="nav-item"><span class="icon">🎨</span> CSS</a>
+            <a href="/javascript" class="nav-item"><span class="icon">⚡</span> JavaScript</a>
+            <a href="/react" class="nav-item"><span class="icon">⚛️</span> React</a>
+            <a href="/nodejs" class="nav-item"><span class="icon">🟢</span> Node.js</a>
+            <a href="/express" class="nav-item"><span class="icon">🚂</span> Express</a>
+            <a href="/flask" class="nav-item"><span class="icon">🌶️</span> Flask</a>
+            <a href="/rest-api" class="nav-item"><span class="icon">🔌</span> REST API</a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="user-info-mini">
+                <div class="avatar-mini">{{ user[0]|upper }}</div>
+                <div class="user-details-mini"><span class="user-name-mini">{{ user }}</span><span class="user-role-mini">student account</span></div>
+            </div>
+            <a href="/logout" class="logout-mini">Logout</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <h2>HTML (HyperText Markup Language)</h2>
+                <p class="subtitle">Focus on semantics, forms, accessibility, and SEO foundations.</p>
+            </div>
+            <div class="topbar-actions"><button class="btn-icon">🔔</button></div>
+        </header>
+
+        <div style="padding: 32px 40px; display: grid; gap: 24px; grid-template-columns: 1fr 1fr;">
+
+            <div class="dash-card">
+                <h3 style="margin-bottom: 16px; font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 8px;">Core HTML Concepts</h3>
+                <div class="task-list">
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Semantic Elements</span><p style="font-size: 12px; color: #64748b;">header, nav, article, section, footer</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://developer.mozilla.org/en-US/docs/Glossary/Semantics', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Document Structure & Meta Tags</span><p style="font-size: 12px; color: #64748b;">SEO optimization, viewport, charset</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_in_HTML', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Lists & Tables</span><p style="font-size: 12px; color: #64748b;">ul, ol, thead, tbody, colspan</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables', '_blank');">Start</button></div>
+                </div>
+            </div>
+
+            <div class="dash-card">
+                <h3 style="margin-bottom: 16px; font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 8px;">Forms & Inputs</h3>
+                <div class="task-list">
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Form Elements & Types</span><p style="font-size: 12px; color: #64748b;">text, email, password, radio, checkbox</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://developer.mozilla.org/en-US/docs/Learn/Forms', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Client-side Validation</span><p style="font-size: 12px; color: #64748b;">required, pattern, minlength, maxlength</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Advanced Form Controls</span><p style="font-size: 12px; color: #64748b;">select, datalist, file uploads</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist', '_blank');">Start</button></div>
+                </div>
+            </div>
+
+            <div class="dash-card">
+                <h3 style="margin-bottom: 16px; font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 8px;">Media & Interactive</h3>
+                <div class="task-list">
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Images & Optimization</span><p style="font-size: 12px; color: #64748b;">img tags, srcset, sizes, alt attributes</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Audio & Video Elements</span><p style="font-size: 12px; color: #64748b;">controls, autoplay, tracking</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Iframes & Dialogs</span><p style="font-size: 12px; color: #64748b;">embedding content, native modal dialogs</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog', '_blank');">Start</button></div>
+                </div>
+            </div>
+
+            <div class="dash-card">
+                <h3 style="margin-bottom: 16px; font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 8px;">Accessibility & Storage</h3>
+                <div class="task-list">
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Web Accessibility (a11y)</span><p style="font-size: 12px; color: #64748b;">ARIA roles, focus management, screen readers</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://developer.mozilla.org/en-US/docs/Learn/Accessibility', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Browser Storage APIs</span><p style="font-size: 12px; color: #64748b;">LocalStorage, SessionStorage mechanisms</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API', '_blank');">Start</button></div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</div>
+</body>
+</html>

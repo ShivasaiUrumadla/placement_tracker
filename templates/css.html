@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Practice - PrepFlow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="dashboard-body">
+
+<div class="dashboard-layout">
+    <aside class="sidebar">
+        <div class="sidebar-logo" style="display: flex; align-items: center; gap: 12px;">
+            <a href="/profile" style="text-decoration: none;" title="Profile">
+                <div class="avatar-mini" style="margin: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;">{{ user[0]|upper }}</div>
+            </a>
+            <a href="/dashboard" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 4px;">PrepFlow<span class="logo-icon">↗</span></a>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-section-title">PREPARATION</div>
+            <a href="/dsa" class="nav-item"><span class="icon">💻</span> DSA / Problem Solving</a>
+            <a href="/aptitude" class="nav-item"><span class="icon">🧠</span> Aptitude</a>
+            <a href="/mock-interviews" class="nav-item"><span class="icon">🎤</span> Mock Interviews</a>
+            
+            <div class="nav-section-title">TECHNOLOGIES</div>
+            <a href="/sql" class="nav-item"><span class="icon">🛢️</span> SQL</a>
+            <a href="/html" class="nav-item"><span class="icon">🌐</span> HTML</a>
+            <a href="/css" class="nav-item active"><span class="icon">🎨</span> CSS</a>
+            <a href="/javascript" class="nav-item"><span class="icon">⚡</span> JavaScript</a>
+            <a href="/react" class="nav-item"><span class="icon">⚛️</span> React</a>
+            <a href="/nodejs" class="nav-item"><span class="icon">🟢</span> Node.js</a>
+            <a href="/express" class="nav-item"><span class="icon">🚂</span> Express</a>
+            <a href="/flask" class="nav-item"><span class="icon">🌶️</span> Flask</a>
+            <a href="/rest-api" class="nav-item"><span class="icon">🔌</span> REST API</a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="user-info-mini">
+                <div class="avatar-mini">{{ user[0]|upper }}</div>
+                <div class="user-details-mini"><span class="user-name-mini">{{ user }}</span><span class="user-role-mini">student account</span></div>
+            </div>
+            <a href="/logout" class="logout-mini">Logout</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <h2>CSS (Cascading Style Sheets)</h2>
+                <p class="subtitle">Master layout, specificity, flexbox, grid, and advanced animations.</p>
+            </div>
+            <div class="topbar-actions"><button class="btn-icon">🔔</button></div>
+        </header>
+
+        <div style="padding: 32px 40px; display: grid; gap: 24px; grid-template-columns: 1fr 1fr;">
+
+            <div class="dash-card">
+                <h3 style="margin-bottom: 16px; font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 8px;">Core Styling Principles</h3>
+                <div class="task-list">
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Box Model</span><p style="font-size: 12px; color: #64748b;">Margin, Border, Padding, Content</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Selectors & Combinators</span><p style="font-size: 12px; color: #64748b;">Classes, IDs, pseudo-classes, direct children</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">CSS Specificity</span><p style="font-size: 12px; color: #64748b;">Calculating importance & cascade rules</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity', '_blank');">Start</button></div>
+                </div>
+            </div>
+
+            <div class="dash-card">
+                <h3 style="margin-bottom: 16px; font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 8px;">Modern Layout Systems</h3>
+                <div class="task-list">
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Flexbox Architecture</span><p style="font-size: 12px; color: #64748b;">One-dimensional layout alignment</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://css-tricks.com/snippets/css/a-guide-to-flexbox/', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">CSS Grid Layout</span><p style="font-size: 12px; color: #64748b;">Two-dimensional templating rules</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://css-tricks.com/snippets/css/complete-guide-grid/', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Positioning Methods</span><p style="font-size: 12px; color: #64748b;">Relative, Absolute, Fixed, Sticky, Static</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://developer.mozilla.org/en-US/docs/Web/CSS/position', '_blank');">Start</button></div>
+                </div>
+            </div>
+
+            <div class="dash-card">
+                <h3 style="margin-bottom: 16px; font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 8px;">Responsive Web Design</h3>
+                <div class="task-list">
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Fluid Layouts & Viewports</span><p style="font-size: 12px; color: #64748b;">Using vw, vh, percentages</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Media Queries</span><p style="font-size: 12px; color: #64748b;">max-width, min-width breakpoints</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Mobile First Design</span><p style="font-size: 12px; color: #64748b;">Progressive enhancement concepts</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://www.w3schools.com/css/css_rwd_intro.asp', '_blank');">Start</button></div>
+                </div>
+            </div>
+
+            <div class="dash-card">
+                <h3 style="margin-bottom: 16px; font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 8px;">Advanced Visuals</h3>
+                <div class="task-list">
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Transforms & Animations</span><p style="font-size: 12px; color: #64748b;">Keyframes, CSS variables, scale, rotate</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Preprocessors (SASS/SCSS)</span><p style="font-size: 12px; color: #64748b;">Mixins, nested rules, variables</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://sass-lang.com/guide', '_blank');">Start</button></div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</div>
+</body>
+</html>

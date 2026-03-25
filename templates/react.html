@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Practice - PrepFlow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="dashboard-body">
+
+<div class="dashboard-layout">
+    <aside class="sidebar">
+        <div class="sidebar-logo" style="display: flex; align-items: center; gap: 12px;">
+            <a href="/profile" style="text-decoration: none;" title="Profile">
+                <div class="avatar-mini" style="margin: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;">{{ user[0]|upper }}</div>
+            </a>
+            <a href="/dashboard" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 4px;">PrepFlow<span class="logo-icon">↗</span></a>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-section-title">PREPARATION</div>
+            <a href="/dsa" class="nav-item"><span class="icon">💻</span> DSA / Problem Solving</a>
+            <a href="/aptitude" class="nav-item"><span class="icon">🧠</span> Aptitude</a>
+            <a href="/mock-interviews" class="nav-item"><span class="icon">🎤</span> Mock Interviews</a>
+            
+            <div class="nav-section-title">TECHNOLOGIES</div>
+            <a href="/sql" class="nav-item"><span class="icon">🛢️</span> SQL</a>
+            <a href="/html" class="nav-item"><span class="icon">🌐</span> HTML</a>
+            <a href="/css" class="nav-item"><span class="icon">🎨</span> CSS</a>
+            <a href="/javascript" class="nav-item"><span class="icon">⚡</span> JavaScript</a>
+            <a href="/react" class="nav-item active"><span class="icon">⚛️</span> React</a>
+            <a href="/nodejs" class="nav-item"><span class="icon">🟢</span> Node.js</a>
+            <a href="/express" class="nav-item"><span class="icon">🚂</span> Express</a>
+            <a href="/flask" class="nav-item"><span class="icon">🌶️</span> Flask</a>
+            <a href="/rest-api" class="nav-item"><span class="icon">🔌</span> REST API</a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="user-info-mini">
+                <div class="avatar-mini">{{ user[0]|upper }}</div>
+                <div class="user-details-mini"><span class="user-name-mini">{{ user }}</span><span class="user-role-mini">student account</span></div>
+            </div>
+            <a href="/logout" class="logout-mini">Logout</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <h2>React Framework</h2>
+                <p class="subtitle">Master component lifecycles, hooks, routing, and state management.</p>
+            </div>
+            <div class="topbar-actions"><button class="btn-icon">🔔</button></div>
+        </header>
+
+        <div style="padding: 32px 40px; display: grid; gap: 24px; grid-template-columns: 1fr 1fr;">
+
+            <div class="dash-card">
+                <h3 style="margin-bottom: 16px; font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 8px;">React Core Concepts</h3>
+                <div class="task-list">
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Components & JSX</span><p style="font-size: 12px; color: #64748b;">Functional vs Class, JSX syntax</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://react.dev/learn/describing-the-ui', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Props & Data Flow</span><p style="font-size: 12px; color: #64748b;">Passing data down, prop types</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://react.dev/learn/passing-props-to-a-component', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Conditional Rendering</span><p style="font-size: 12px; color: #64748b;">Ternaries, logical &&, switch cases</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://react.dev/learn/conditional-rendering', '_blank');">Start</button></div>
+                </div>
+            </div>
+
+            <div class="dash-card">
+                <h3 style="margin-bottom: 16px; font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 8px;">State & Core Hooks</h3>
+                <div class="task-list">
+                    <div class="task-item"><div class="task-info"><span class="task-topic">useState</span><p style="font-size: 12px; color: #64748b;">State management in functional components</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://react.dev/reference/react/useState', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">useEffect & Lifecycles</span><p style="font-size: 12px; color: #64748b;">ComponentMount, APIs, Cleanup</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://react.dev/reference/react/useEffect', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">useRef</span><p style="font-size: 12px; color: #64748b;">DOM references and persistent values</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://react.dev/reference/react/useRef', '_blank');">Start</button></div>
+                </div>
+            </div>
+
+            <div class="dash-card">
+                <h3 style="margin-bottom: 16px; font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 8px;">Advanced Hooks & State</h3>
+                <div class="task-list">
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Context API</span><p style="font-size: 12px; color: #64748b;">Global state without prop drilling</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://react.dev/learn/passing-data-deeply-with-context', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">useReducer</span><p style="font-size: 12px; color: #64748b;">Complex state logic & actions</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://react.dev/reference/react/useReducer', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">useMemo & useCallback</span><p style="font-size: 12px; color: #64748b;">Performance optimizations</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://react.dev/reference/react/useMemo', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Redux / Zustand Overview</span><p style="font-size: 12px; color: #64748b;">External state management libraries</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://redux.js.org/introduction/getting-started', '_blank');">Start</button></div>
+                </div>
+            </div>
+
+            <div class="dash-card">
+                <h3 style="margin-bottom: 16px; font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 8px;">Ecosystem & Tools</h3>
+                <div class="task-list">
+                    <div class="task-item"><div class="task-info"><span class="task-topic">React Router</span><p style="font-size: 12px; color: #64748b;">SPAs, Link, NavLink, Route parameters</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://reactrouter.com/en/main', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">Next.js Basics</span><p style="font-size: 12px; color: #64748b;">SSR, SSG, Routing conventions</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://nextjs.org/docs', '_blank');">Start</button></div>
+                    <div class="task-item"><div class="task-info"><span class="task-topic">React Testing Library</span><p style="font-size: 12px; color: #64748b;">Jest, Queries, Assertions</p></div><button class="btn-primary" style="padding:4px 12px; font-size:12px;" onclick="window.open('https://testing-library.com/docs/react-testing-library/intro/', '_blank');">Start</button></div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</div>
+</body>
+</html>

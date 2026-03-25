@@ -1,0 +1,87 @@
+body {
+    background: #f4f6f9;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Card Container */
+.profile-card {
+    width: 320px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Header */
+.profile-header {
+    background: #f9fafb;
+    color: #333;
+    border-bottom: 1px solid #eee;
+}
+
+.avatar {
+    width: 70px;
+    height: 70px;
+    background: white;
+    color: #4facfe;
+    border-radius: 50%;
+    font-size: 28px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+/* Role */
+.role {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Body */
+.profile-body {
+    padding: 15px;
+    font-size: 14px;
+    color: #333;
+}
+
+.profile-body p {
+    margin: 6px 0;
+}
+
+.batch {
+    color: green;
+    font-weight: bold;
+}
+
+/* Stats */
+.profile-stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    background: #f9fafc;
+    border-top: 1px solid #eee;
+}
+
+.profile-stats h3 {
+    margin: 0;
+    color: #4facfe;
+}
+
+.profile-stats span {
+    font-size: 12px;
+    color: gray;
+}
+
+/* Hover Effect */
+.profile-card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s;
+}
