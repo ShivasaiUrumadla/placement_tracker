@@ -10,7 +10,7 @@
 </head>
 <body class="dashboard-body">
 
-    <div class="dashboard-layout">
+''    <div class="dashboard-layout">
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-logo" style="display: flex; align-items: center; gap: 12px;">
@@ -80,7 +80,14 @@
                         <p>Difficulty: {{ problem.difficulty }}</p>
                         <p>Tags: {{ problem.tags | join(', ') }}</p>
                         <a href="{{ problem.link }}" target="_blank" style="margin-right: 12px;">🔗 View Problem</a>
-                        <button>ADD</button>
+                        <form action="/admin/add-problem" method="post">
+                            <input type="hidden" name="name" value="{{ problem.name }}">
+                            <input type="hidden" name="difficulty" value="{{ problem.difficulty }}">
+                            <input type="hidden" name="tags" value="{{ problem.tags | join(', ') }}">
+                            <input type="hidden" name="link" value="{{ problem.link }}">    
+                            <button>ADD</button>    
+                        </form>
+                        
                     </div>
                     {% endfor %}
                 {% else %}

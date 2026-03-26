@@ -21,15 +21,16 @@ class User(db.Model):
     password=db.Column(db.String(100))
     email=db.Column(db.String(100))
 
-   
-#-------------CREATING TABLE USING PYTHON INSTEAD OF WRTING SQL MANUALLY---------
-class Task(db.Model):
-    __tablename__ = 'tasks'   
+#---------------CREATING TABLE USING PYTHON INSTEAD OF WRTING SQL MANUALLY---------------
+class dsa_questions(db.Model):
+    __tablename__="dsa_questions"
+    id=db.Column(db.Integer,primary_key=True,autoincrement=True)
+    name=db.Column(db.String(100))
+    difficulty=db.Column(db.String(100))
+    topic=db.Column(db.String(100))
+    link=db.Column(db.String(100))
 
-    user_id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(100))
-    taks_name = db.Column(db.String(255))
-    status = db.Column(db.String(50))
+   
 
 #--------------HOME REDIRECTS TO REGISTER-------------------------
 @app.route('/')
@@ -73,18 +74,22 @@ def fetch_leetcode_problems(tag, limit=20):
         }}
         """
     }
-    res = requests.post(url, json=query)
-    data = res.json()
-    problems = data["data"]["questionList"]["data"]
-    result = []
-    for p in problems:
-        result.append({
-            "name": p["title"],
-            "difficulty": p["difficulty"],
-            "tags": [t["slug"] for t in p["topicTags"]],
-            "link": f"https://leetcode.com/problems/{p['titleSlug']}/"
-        })
-    return result
+    try:
+        res = requests.post(url, json=query, timeout=10)
+        data = res.json()
+        problems = data["data"]["questionList"]["data"]
+        result = []
+        for p in problems:
+            result.append({
+                "name": p["title"],
+                "difficulty": p["difficulty"],
+                "tags": [t["slug"] for t in p["topicTags"]],
+                "link": f"https://leetcode.com/problems/{p['titleSlug']}/"
+            })
+        return result
+    except Exception as e:
+        print(f"Error fetching LeetCode problems: {e}")
+        return []
 
 @app.route('/admin/arrays')
 def admin_arrays():
@@ -158,15 +163,25 @@ def admin_math():
     problems = fetch_leetcode_problems("math")
     return render_template('admin.html', user=session['user'], clean_data=problems, topic="Math & Number Theory")
 
+
+#--------------HANDLING DATA FROM ADMIN TO STUDENT------------------------
+
+@app.route('/admin/add-problem',methods=['POST'])
+def admin_addproblem():
+    name=request.form.get('name')
+    difficulty=request.form.get('difficulty')
+    tags=request.form.get('tags')
+    link=request.form.get('link')
+    
+
 #--------------CREATING DASHBOARD PAGE-------------------------
 @app.route('/dashboard')
 def dashboard():
     if 'user' not in session:
         return redirect('/login')
-    tasks = Task.query.all()
     users = User.query.all()
     role = 'admin account' if session['user'].lower() == 'admin' else 'student account'
-    return render_template('dashboard.html', user=session['user'], users=users, tasks=tasks, role=role)
+    return render_template('dashboard.html', user=session['user'], users=users, role=role)
 
 # ---------------NOTIFICATIONS PAGE-------------------------
 @app.route('/notifications')

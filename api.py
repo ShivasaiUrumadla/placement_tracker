@@ -55,13 +55,14 @@ def get_array_problems():
     return array_problems
 
 # 🔽 Run directly
-problems = get_array_problems()
+if __name__ == '__main__':
+    problems = get_array_problems()
 
-print("Total Array Problems:", len(problems))
-print("\nFirst 10 Problems:\n")
+    print("Total Array Problems:", len(problems))
+    print("\nFirst 10 Problems:\n")
 
-for p in problems[:1]:
-    print(f"Name   : {p['name']}")
-    print(f"Rating : {p['rating']}")
-    print(f"Link   : {p['link']}")
-    print("-" * 40)
+    for p in problems[:1]:
+        print(f"Name   : {p['name']}")
+        print(f"Rating : {p['rating']}")
+        print(f"Link   : {p['link']}")
+        print("-" * 40)
