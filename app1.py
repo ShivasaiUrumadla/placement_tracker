@@ -29,66 +29,7 @@ class Task(db.Model):
     user_id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(100))
     taks_name = db.Column(db.String(255))
-    status = db.Column(db.String(50)
-
-# ----------------------ADMIN----------------------
-@app.route('/admin')
-def admin():
-    # if 'user' not in session: return redirect('/login')
-    # return render_template('admin.html')
-
-
-    url = "https://leetcode.com/graphql"
-
-    all_problems = []
-    skip = 0
-    limit = 50   # max safe value
-
-    while True:
-        query = {
-            "query": f"""
-            {{
-            questionList(
-                categorySlug: ""
-                limit: {limit}
-                skip: {skip}
-                filters: {{
-                tags: ["string"]
-                }}
-            ) {{
-                data {{
-                title
-                titleSlug
-                difficulty
-                topicTags {{
-                    slug
-                }}
-                }}
-            }}
-            }}
-            """
-        }
-
-        res = requests.post(url, json=query)
-        data = res.json()
-
-        problems = data["data"]["questionList"]["data"]
-
-        if not problems:   # ✅ stop when no more data
-            break
-
-        for p in problems:
-            all_problems.append({
-                "name": p["title"],
-                "difficulty": p["difficulty"],
-                "tags": [t["slug"] for t in p["topicTags"]],
-                "link": f"https://leetcode.com/problems/{p['titleSlug']}/"
-            })
-
-        skip += limit   # move to next page
-
-    print(len(all_problems))
-    return render_template('admin.html',clean_data=all_problems)
+    status = db.Column(db.String(50))
 
 #--------------HOME REDIRECTS TO REGISTER-------------------------
 @app.route('/')
@@ -99,6 +40,124 @@ def index():
         return redirect('/dashboard')
     return redirect('/login')   
 
+# ---------------ADMIN----------------------------
+@app.route('/admin')
+def admin():
+    if 'user' not in session:
+        return redirect('/login')
+    return render_template('admin.html', user=session['user'])
+
+# ------------------- ADMIN DSA TOPIC ROUTES ----------------------------
+def fetch_leetcode_problems(tag, limit=20):
+    url = "https://leetcode.com/graphql"
+    query = {
+        "query": f"""
+        {{
+        questionList(
+            categorySlug: ""
+            limit: {limit}
+            skip: 0
+            filters: {{
+            tags: ["{tag}"]
+            }}
+        ) {{
+            data {{
+            title
+            titleSlug
+            difficulty
+            topicTags {{
+                slug
+            }}
+            }}
+        }}
+        }}
+        """
+    }
+    res = requests.post(url, json=query)
+    data = res.json()
+    problems = data["data"]["questionList"]["data"]
+    result = []
+    for p in problems:
+        result.append({
+            "name": p["title"],
+            "difficulty": p["difficulty"],
+            "tags": [t["slug"] for t in p["topicTags"]],
+            "link": f"https://leetcode.com/problems/{p['titleSlug']}/"
+        })
+    return result
+
+@app.route('/admin/arrays')
+def admin_arrays():
+    if 'user' not in session: return redirect('/login')
+    problems = fetch_leetcode_problems("array")
+    return render_template('admin.html', user=session['user'], clean_data=problems, topic="Arrays & Strings")
+
+@app.route('/admin/linked-list')
+def admin_linked_list():
+    if 'user' not in session: return redirect('/login')
+    problems = fetch_leetcode_problems("linked-list")
+    return render_template('admin.html', user=session['user'], clean_data=problems, topic="Linked List")
+
+@app.route('/admin/stack-queue')
+def admin_stack_queue():
+    if 'user' not in session: return redirect('/login')
+    problems = fetch_leetcode_problems("stack")
+    return render_template('admin.html', user=session['user'], clean_data=problems, topic="Stack & Queue")
+
+@app.route('/admin/trees')
+def admin_trees():
+    if 'user' not in session: return redirect('/login')
+    problems = fetch_leetcode_problems("tree")
+    return render_template('admin.html', user=session['user'], clean_data=problems, topic="Trees")
+
+@app.route('/admin/graphs')
+def admin_graphs():
+    if 'user' not in session: return redirect('/login')
+    problems = fetch_leetcode_problems("graph")
+    return render_template('admin.html', user=session['user'], clean_data=problems, topic="Graphs")
+
+@app.route('/admin/dp')
+def admin_dp():
+    if 'user' not in session: return redirect('/login')
+    problems = fetch_leetcode_problems("dynamic-programming")
+    return render_template('admin.html', user=session['user'], clean_data=problems, topic="Dynamic Programming")
+
+@app.route('/admin/hashing')
+def admin_hashing():
+    if 'user' not in session: return redirect('/login')
+    problems = fetch_leetcode_problems("hash-table")
+    return render_template('admin.html', user=session['user'], clean_data=problems, topic="Hashing")
+
+@app.route('/admin/sorting')
+def admin_sorting():
+    if 'user' not in session: return redirect('/login')
+    problems = fetch_leetcode_problems("sorting")
+    return render_template('admin.html', user=session['user'], clean_data=problems, topic="Sorting & Searching")
+
+@app.route('/admin/greedy')
+def admin_greedy():
+    if 'user' not in session: return redirect('/login')
+    problems = fetch_leetcode_problems("greedy")
+    return render_template('admin.html', user=session['user'], clean_data=problems, topic="Greedy")
+
+@app.route('/admin/backtracking')
+def admin_backtracking():
+    if 'user' not in session: return redirect('/login')
+    problems = fetch_leetcode_problems("backtracking")
+    return render_template('admin.html', user=session['user'], clean_data=problems, topic="Backtracking")
+
+@app.route('/admin/bit-manipulation')
+def admin_bit_manipulation():
+    if 'user' not in session: return redirect('/login')
+    problems = fetch_leetcode_problems("bit-manipulation")
+    return render_template('admin.html', user=session['user'], clean_data=problems, topic="Bit Manipulation")
+
+@app.route('/admin/math')
+def admin_math():
+    if 'user' not in session: return redirect('/login')
+    problems = fetch_leetcode_problems("math")
+    return render_template('admin.html', user=session['user'], clean_data=problems, topic="Math & Number Theory")
+
 #--------------CREATING DASHBOARD PAGE-------------------------
 @app.route('/dashboard')
 def dashboard():
@@ -106,7 +165,8 @@ def dashboard():
         return redirect('/login')
     tasks = Task.query.all()
     users = User.query.all()
-    return render_template('dashboard.html',user=session['user'], users=users, tasks=tasks)
+    role = 'admin account' if session['user'].lower() == 'admin' else 'student account'
+    return render_template('dashboard.html', user=session['user'], users=users, tasks=tasks, role=role)
 
 # ---------------NOTIFICATIONS PAGE-------------------------
 @app.route('/notifications')
@@ -197,6 +257,7 @@ def login():
         user = User.query.filter_by(username=username, password=password).first()#to check the first match of the user in db
         if user:
             session['user'] = user.username#for storing temprarily
+            
             return redirect('/dashboard')
         else:
             return "Invalid credentials"

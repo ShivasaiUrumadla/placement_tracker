@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="dashboard-body">
+
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo" style="display: flex; align-items: center; gap: 12px;">
+                <a href="/profile" style="text-decoration: none;" title="Profile">
+                    <div class="avatar-mini"
+                        style="margin: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;">
+                        {{ user[0]|upper }}</div>
+                </a>
+                <a href="/dashboard"
+                    style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 4px;">PrepFlow<span
+                        class="logo-icon">↗</span></a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">DSA TOPICS</div>
+                <a href="/admin/arrays" class="nav-item"><span class="icon">📦</span> Arrays &amp; Strings</a>
+                <a href="/admin/linked-list" class="nav-item"><span class="icon">🔗</span> Linked List</a>
+                <a href="/admin/stack-queue" class="nav-item"><span class="icon">📚</span> Stack &amp; Queue</a>
+                <a href="/admin/trees" class="nav-item"><span class="icon">🌲</span> Trees</a>
+                <a href="/admin/graphs" class="nav-item"><span class="icon">🕸️</span> Graphs</a>
+                <a href="/admin/dp" class="nav-item"><span class="icon">🧩</span> Dynamic Programming</a>
+                <a href="/admin/hashing" class="nav-item"><span class="icon">🔑</span> Hashing</a>
+                <a href="/admin/sorting" class="nav-item"><span class="icon">🔃</span> Sorting &amp; Searching</a>
+                <a href="/admin/greedy" class="nav-item"><span class="icon">💡</span> Greedy</a>
+                <a href="/admin/backtracking" class="nav-item"><span class="icon">↩️</span> Backtracking</a>
+                <a href="/admin/bit-manipulation" class="nav-item"><span class="icon">🔢</span> Bit Manipulation</a>
+                <a href="/admin/math" class="nav-item"><span class="icon">➗</span> Math &amp; Number Theory</a>
+
+                <div class="nav-section-title">NAVIGATION</div>
+                <a href="/dashboard" class="nav-item"><span class="icon">🏠</span> Dashboard</a>
+                <a href="/dsa" class="nav-item"><span class="icon">💻</span> DSA Page</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info-mini">
+                    <div class="avatar-mini">{{ user[0]|upper }}</div>
+                    <div class="user-details-mini">
+                        <span class="user-name-mini">{{ user }}</span>
+                        <span class="user-role-mini">admin account</span>
+                    </div>
+                </div>
+                <a href="/logout" class="logout-mini">Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="topbar">
+                <div>
+                    <h2>Admin Panel 🛠️ {% if topic %} — {{ topic }}{% endif %}</h2>
+                    <p class="subtitle">
+                        {% if topic %}
+                            Showing problems for <strong>{{ topic }}</strong>. Click ADD to publish to students.
+                        {% else %}
+                            Select a topic from the sidebar to load problems.
+                        {% endif %}
+                    </p>
+                </div>
+            </header>
+
+            <!-- Problems List -->
+            <div style="padding: 24px;">
+                {% if clean_data %}
+                    {% for problem in clean_data %}
+                    <div class="dash-card" style="margin-bottom: 16px; padding: 16px;">
+                        <p><strong>{{ problem.name }}</strong></p>
+                        <p>Difficulty: {{ problem.difficulty }}</p>
+                        <p>Tags: {{ problem.tags | join(', ') }}</p>
+                        <a href="{{ problem.link }}" target="_blank" style="margin-right: 12px;">🔗 View Problem</a>
+                        <button>ADD</button>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="dash-card" style="padding: 32px; text-align: center;">
+                        <p style="font-size: 18px;">👈 Select a DSA topic from the sidebar to load problems.</p>
+                    </div>
+                {% endif %}
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
